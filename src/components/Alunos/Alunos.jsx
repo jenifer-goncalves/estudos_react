@@ -1,13 +1,15 @@
-import styles from './alunos.module.css'
+import styles from "./alunos.module.css";
 
-function Aluno(){
+function Alunos({nome='cadastro', idade=0, ativo=false}){
     return (
         <>
-        <p>nome: Jeni</p>
-        <p>idade: 17</p>
-        <p>ativo: Não</p>
+            <div className={styles.lista}>
+                <p>Nome: {nome}</p>
+                <p>Idade: {idade}</p>
+                <p>Ativo: {ativo ? 'SIM' : 'NÃO'}</p>
+            </div>
         </>
-    )
-}
+    );
+};
 
-export default Aluno
+export default Alunos
