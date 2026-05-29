@@ -1,9 +1,8 @@
 import Aluno from './components/Alunos/Alunos.jsx';
 import Card from './components/Card/Card.jsx';
 
-function App() {
+function Aluno() {
   
-
   return (
     <>
       <p>Nome: {Aluno.nome}</p>
@@ -13,4 +12,12 @@ function App() {
   );
 }
 
-export default App
+export default App(){
+  return (
+    <section>
+      <Aluno />
+      <Aluno />
+      <Aluno />
+    </section>
+  );
+}
