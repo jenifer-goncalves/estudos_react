@@ -3,7 +3,7 @@ import styles from "./contador.module.css";
 
 function Contador(){
   const [contador, setContador] = useState(0);
-  const numeroSort = (Math.floor(Math.random()*50) + 1);
+  const numeroSort = (Math.floor(Math.random()*100) + 1);
 
     // Atualizar o estado dos botões
     const aumentarNum = () => {
