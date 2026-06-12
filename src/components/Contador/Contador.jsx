@@ -7,19 +7,19 @@ function Contador(){
 
     // Atualizar o estado dos botões
     const aumentarNum = () => {
-        return setContador(contador + 1);
+         setContador(contador + 1);
     };
 
     const diminuirNum = () => {
-        return setContador(contador - 1);
+         setContador(contador - 1);
     };
 
     const reiniciarNum = () => {
-        return setContador(0)
+         setContador(0)
     };
 
     const numSorteado = () => {
-        return setContador(numeroSort)
+         setContador(numeroSort)
     };
 
 
@@ -31,10 +31,10 @@ function Contador(){
         <h2 className={styles.numero}>{contador}</h2>
 
         <div className={styles.btnEspaco}>
-            <button className={styles.btnAumentar} onclick={aumentarNum}>Aumentar</button>
-            <button className={styles.btnReiniciar} onclick={reiniciarNum}>Reiniciar</button>
-            <button className={styles.btnDiminuir} onclick={diminuirNum}>Diminuir</button>
-            <button className={styles.btnSortear} onclick={numSorteado}>Sortear</button>
+            <button className={styles.btnAumentar} onClick={aumentarNum}>Aumentar</button>
+            <button className={styles.btnReiniciar} onClick={reiniciarNum}>Reiniciar</button>
+            <button className={styles.btnDiminuir} onClick={diminuirNum}>Diminuir</button>
+            <button className={styles.btnSortear} onClick={numSorteado}>Sortear</button>
         </div>
 
     </div>
