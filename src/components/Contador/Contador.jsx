@@ -3,7 +3,8 @@ import styles from "./contador.module.css";
 
 function Contador(){
   const [contador, setContador] = useState(0);
-  const numeroSort = (Math.floor(Math.random()*100) + 1);
+  const contadorFormatado = String(contador).padStart(2, '0');
+  
 
     // Atualizar o estado dos botões
     const aumentarNum = () => {
@@ -19,16 +20,16 @@ function Contador(){
     };
 
     const numSorteado = () => {
-         setContador(numeroSort)
+         setContador(Math.floor(Math.random()*100) + 1)
     };
 
 
   return(
     <>
-    <h1 className={styles.tituloContador}>Projeto Contador</h1>
+    <h1 className={styles.tituloContador}>Projeto Contador ⏱</h1>
 
     <div className={styles.container}>
-        <h2 className={styles.numero}>{contador}</h2>
+        <h2 className={styles.numero}>{contadorFormatado}</h2>
 
         <div className={styles.btnEspaco}>
             <button className={styles.btnAumentar} onClick={aumentarNum}>Aumentar</button>
