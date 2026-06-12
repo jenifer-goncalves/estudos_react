@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 body{
     display: flex;
     justify-content: center;
@@ -7,23 +9,31 @@ body{
 
 }
 
+.tituloContador{
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1.8rem;
+}
+
 .container{
-    background-color: antiquewhite;
+    background-color:antiquewhite;
     padding: 50px;
     border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
 }
 
 .numero{
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     text-align: center;
     color: rgb(0, 0, 0);
     font-family: 'Times New Roman', Times, serif;
-    font-size: 4rem;
+    font-size: 5rem;
 }
 
 .btnEspaco{
     display: flex;
-    gap: 5px;
+    gap: 8px;
 }
 
 .btnAumentar{
@@ -34,6 +44,7 @@ body{
     cursor: pointer;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 15px;
+    box-shadow: -3px 1px 5px rgba(0,0,0,0.5);
     transition: all 0.2s;
 }
 
@@ -51,6 +62,7 @@ body{
     cursor: pointer;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 15px;
+    box-shadow: -3px 1px 5px rgba(0,0,0,0.5);
     transition: all 0.2s;
 }
 
@@ -68,10 +80,28 @@ body{
     cursor: pointer;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 15px;
+    box-shadow: -3px 1px 5px rgba(0,0,0,0.5);
     transition: all 0.2s;
 }
 
 .btnDiminuir:hover{
     background-color: rgb(122, 21, 21);
+    color: white;
+}
+
+.btnSortear{
+    background-color: rgb(247, 233, 107);
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    box-shadow: -3px 1px 5px rgba(0,0,0,0.5);
+    transition: all 0.2s;
+}
+
+.btnSortear:hover{
+    background-color: rgb(202, 187, 52);
     color: white;
 }
