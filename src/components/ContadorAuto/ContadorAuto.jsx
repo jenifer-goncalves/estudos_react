@@ -53,7 +53,7 @@ function ContadorAuto(){
             <button className={styles.btnReiniciar} onClick={reiniciarNum}>Reiniciar</button>
             <button className={styles.btnDiminuir} onClick={diminuirNum}>Diminuir</button>
             <button className={styles.btnSortear} onClick={numSorteado}>Sortear</button>
-            <button>
+            <button onClick={alternarAutomatico}>
                 {automatico ? 'Parar' : 'Iniciar'}
             </button>
         </div>
