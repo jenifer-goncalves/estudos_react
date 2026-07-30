@@ -23,6 +23,12 @@ function Contador(){
          setContador(Math.floor(Math.random()*100) + 1)
     };
 
+    const obterClasse = () =>{
+     if (contador > 0) return styles.valorPositivo 
+     if (contador < 0) return styles.valorNegativo
+     return styles.numero
+    }
+
 
   return(
     <>
