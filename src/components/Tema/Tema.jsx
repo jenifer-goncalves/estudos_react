@@ -53,8 +53,8 @@ function Tema() {
             {/* Caso 2: Campo de texto */}
             <section className={styles.card}>
                 <h1>2. Campo de texto (useState)</h1>
-                <input className={styles.input} type="text" placeholder="Digite seu nome"/>
-                <p>Olá {nome}</p>
+                <input className={styles.input} type="text" placeholder="Digite seu nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
+                <p>Olá {nome || "visitante"}</p>
             </section>
 
             {/* Caso 3: Alternância de tema */}
