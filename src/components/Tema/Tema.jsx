@@ -18,7 +18,7 @@ function Tema() {
     }, [contador]);
 
     useEffect(() => {
-        console.log('Tema alterado:', temaEscuro ? "Escuro" : "Claro")
+        console.log('Tema alterado para:', temaEscuro ? 'Escuro' : 'Claro')
     }, [temaEscuro]);
 
 
@@ -36,7 +36,7 @@ function Tema() {
     }
 
     return (
-        <main className={`${styles.container}${temaEscuro ? styles.temaEscuro : styles.temaClaro}`}>
+        <main className={`${styles.container} ${temaEscuro ? styles.temaEscuro : styles.temaClaro}`}>
             <h1 className={styles.titulo}>Exemplos de useState e useEffect</h1>
 
             {/* Caso 1: Contador */}
