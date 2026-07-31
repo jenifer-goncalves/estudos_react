@@ -5,18 +5,19 @@
 // import UseStateHook from './components/UseStateHook/UseStateHook.jsx';
 // import Contador from './components/Contador/Contador.jsx';
 // import UseEffectHook from './components/UseEffectHook/UseEffectHook.jsx';
-import ContadorAuto from './components/ContadorAuto/ContadorAuto.jsx';
+// import ContadorAuto from './components/ContadorAuto/ContadorAuto.jsx';
+import Tema from "./components/Tema/Tema.jsx";
 
 
 function App() {
-
 
 
   return (
     <>
 
     {/* <UseStateHook/> */}
-    <ContadorAuto/>
+    {/* <ContadorAuto/> */}
+    <Tema/>
     </>
   );
 };

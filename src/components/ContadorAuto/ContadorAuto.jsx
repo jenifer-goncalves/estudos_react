@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
-import styles from "./ContadorAuto.module.css";
+import styles from "./ContadorAuto.module.css"
 
 function ContadorAuto(){
   const [contador, setContador] = useState(0);
+  const contadorFormatado = String(contador).padStart(2, '0');
 
   const [automatico, setAutomatico] = useState(false);
   
@@ -53,7 +54,7 @@ function ContadorAuto(){
             <button className={styles.btnReiniciar} onClick={reiniciarNum}>Reiniciar</button>
             <button className={styles.btnDiminuir} onClick={diminuirNum}>Diminuir</button>
             <button className={styles.btnSortear} onClick={numSorteado}>Sortear</button>
-            <button onClick={alternarAutomatico}>
+            <button classname={styles.btnAuto} onClick={alternarAutomatico}>
                 {automatico ? 'Parar' : 'Iniciar'}
             </button>
         </div>

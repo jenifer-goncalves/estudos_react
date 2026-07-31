@@ -106,6 +106,19 @@ body{
     color: white;
 }
 
+
+.btnAuto{
+    background-color: rgb(250, 0, 175);
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    box-shadow: -3px 1px 5px rgba(0,0,0,0.5);
+    transition: all 0.2s;
+}
+
 .valorPositivo{
     color: green;
 }
