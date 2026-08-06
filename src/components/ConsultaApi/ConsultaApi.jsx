@@ -12,7 +12,7 @@ async function buscarUsuarios(){
 
     try{
 
-        const resposta = await fetch("https://jsonplaceholder.typicode.com/users");
+        const resposta = await fetch("https://httpbin.org/status/401");
         console.log(resposta)
 
         if (!resposta.ok){
