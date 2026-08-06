@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import Swal from 'sweetalert2'
 import styles from "./consultaApi.module.css"
 
 function ConsultarApi(){
@@ -56,6 +57,7 @@ return(
         <section className={styles.card}>
             <button className={styles.buscarButton} onClick={buscarUsuarios} disable={carregando}>
                 {carregando ? "Buscando..." : "Consultar"}
+                
             </button>
             <h2>Usuários da JSON Placeholder</h2>
 
