@@ -12,11 +12,20 @@ async function buscarUsuarios(){
 
     try{
 
-        // const resposta = await fetch("https://httpbin.org/status/401");
         const resposta = await fetch("https://jsonplaceholder.typicode.com/users");
         console.log(resposta)
 
         if (!resposta.ok){
+
+            if (resposta.status === 500){
+                throw new Error("Erro 500: O banco de dados ou o servidor falhou.")
+            }
+
+            if (resposta.status === 401){
+                throw new Error("Erro 401: Usuário não autorizado.");
+            }
+
+            throw new Error(`Erro ${resposta.status}: URL não encontrada ou inválida.`);
 
         }
 
@@ -25,6 +34,13 @@ async function buscarUsuarios(){
         setNome(dados);
 
     } catch (error){
+        console.log(error.message)
+
+        if (error.message === "Failed to fetch" || !navigator.onLine){
+            setErro("Não foi possível conectar ao servidor. Verifique sua internet.");
+        } else {
+            setErro(error.message)
+        }
 
     } finally {
         setCarregando(false)
@@ -34,18 +50,40 @@ async function buscarUsuarios(){
 
 return(
 
-    <main>
-        <h1 className={styles.tituloPrincipal}>Consulta de API</h1>
-        <section>
-            <button>Consultar</button>
+    <main className={styles.container}>
+        <h1 className={styles.titulo}>Consulta de API</h1>
+        <section className={styles.card}>
+            <button className={styles.buscarButton} onClick={buscarUsuarios} disable={carregando}>
+                {carregando ? "Buscando..." : "Consultar"}
+            </button>
             <h2>Usuários da JSON Placeholder</h2>
-            <span>Nome</span>
-            <span></span>
-            <span></span>
+
+            {/* Exibe mensagem de carregamento */}
+            {carregando && <p>Carregando usuários...</p>}
+
+            {/* Exibe mensagem de erro */}
+            {erro && <p className={styles.erro}>{erro}</p>}
+
+            {/* Exibe lista de usuários */}
+            {!carregando && !erro &&(
+                <ul className={styles.lista}>
+                    {nome.map((nome) => (
+                        <li key={nome.id} className={styles.item}>
+                            <h3>{nome.name}</h3>
+                            <p>
+                                <strong>E-mail:</strong> {nome.email}
+                            </p>
+                            <p>
+                                <strong>Cidade:</strong> {nome.address.city}
+                            </p>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </section>
     </main>
     
-)
+);
 
 }
 
