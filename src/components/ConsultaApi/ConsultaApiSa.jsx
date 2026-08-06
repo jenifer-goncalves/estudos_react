@@ -7,6 +7,15 @@ const [nome, setNome] = useState([]);
 const [erro, setErro] = useState("");
 const [carregando, setCarregando] = useState(false);
 
+// Colocar essa função sucesso no onclick mas não sei como ainda
+// const sucesso = () => {
+//     Swal.fire({
+//         title: "Drag me!",
+//         icon: "success",
+//         draggable: true
+//     });
+// }
+
 async function buscarUsuarios(){
     setCarregando(true)
     setErro("");
