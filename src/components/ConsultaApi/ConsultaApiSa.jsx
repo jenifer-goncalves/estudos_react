@@ -60,7 +60,7 @@ async function buscarUsuarios(){
             Swal.close()
             Swal.fire({
                 title: "Consulta bem-sucedida",
-                icon: "success",
+                icon: "success"
             });
         }
     
