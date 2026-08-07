@@ -20,6 +20,7 @@ async function buscarUsuarios(){
             },
         })
 
+
         // const resposta = await fetch("https://httpbin.org/status/401");
         const resposta = await fetch("https://jsonplaceholder.typicode.com/users");
     
@@ -27,16 +28,30 @@ async function buscarUsuarios(){
         if (!resposta.ok){
 
             if (resposta.status === 500){
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: "Erro 500: O banco de dados ou servidor falhou."
+                });
                 throw new Error("Erro 500: O banco de dados ou o servidor falhou.")
             }
 
             if (resposta.status === 401){
+                Swal.fire({
+                        icon: "error",
+                        title: "Erro",
+                        text: "Erro 401: Usuário não autorizado!"
+                });
                 throw new Error("Erro 401: Usuário não autorizado.");
-            }
-
+            } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro",
+                        text: "URL não encontrada ou inválida!"
+                    });
             throw new Error(`Erro ${resposta.status}: URL não encontrada ou inválida.`);
-
         }
+    }
 
         // Converte a resposta da API em json (ela era uma promisse)
         const dados = await resposta.json();
@@ -46,29 +61,29 @@ async function buscarUsuarios(){
             Swal.fire({
                 title: "Consulta bem-sucedida",
                 icon: "success",
-                draggable: true
             });
         }
+    
 
     } catch (error){
-        console.log(error.message)
 
         if (error.message === "Failed to fetch" || !navigator.onLine){
-            setErro("Não foi possível conectar ao servidor. Verifique sua internet.");
             Swal.fire({
-                            title: "Falha na Conexão",
-                            text: "Não foi possível conectar ao servidor. Verifique sua internet.",
-                            icon: "question"
-                            });
-        } else {
-            setErro(error.message)
-        }
+                    title: "Falha na Conexão",
+                    text: "Não foi possível conectar ao servidor. Verifique sua internet.",
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Tentar Novamente",
+                    cancelButtonText: "OK"
+                }).then((result) => {
+                    if (result.isConfirmed) buscarUsuarios();
+            })
+        } 
 
     } finally {
         setCarregando(false)
     }
 }
-
 
 return(
 
