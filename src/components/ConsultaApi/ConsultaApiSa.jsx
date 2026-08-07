@@ -2,19 +2,10 @@ import { useState, useEffect } from "react"
 import Swal from 'sweetalert2'
 import styles from "./consultaApi.module.css"
 
-function ConsultarApi(){
+function ConsultarApiSa(){
 const [nome, setNome] = useState([]);
 const [erro, setErro] = useState("");
 const [carregando, setCarregando] = useState(false);
-
-// Colocar essa função sucesso no onclick mas não sei como ainda
-// const sucesso = () => {
-//     Swal.fire({
-//         title: "Drag me!",
-//         icon: "success",
-//         draggable: true
-//     });
-// }
 
 async function buscarUsuarios(){
     setCarregando(true)
@@ -22,9 +13,16 @@ async function buscarUsuarios(){
 
     try{
 
+        Swal.fire({
+            title: "Buscando...",
+            didOpen: () => {
+                Swal.showLoading()
+            },
+        })
+
         // const resposta = await fetch("https://httpbin.org/status/401");
         const resposta = await fetch("https://jsonplaceholder.typicode.com/users");
-        console.log(resposta)
+    
 
         if (!resposta.ok){
 
@@ -43,12 +41,25 @@ async function buscarUsuarios(){
         // Converte a resposta da API em json (ela era uma promisse)
         const dados = await resposta.json();
         setNome(dados);
+        if (dados){
+            Swal.close()
+            Swal.fire({
+                title: "Consulta bem-sucedida",
+                icon: "success",
+                draggable: true
+            });
+        }
 
     } catch (error){
         console.log(error.message)
 
         if (error.message === "Failed to fetch" || !navigator.onLine){
             setErro("Não foi possível conectar ao servidor. Verifique sua internet.");
+            Swal.fire({
+                            title: "Falha na Conexão",
+                            text: "Não foi possível conectar ao servidor. Verifique sua internet.",
+                            icon: "question"
+                            });
         } else {
             setErro(error.message)
         }
@@ -99,4 +110,4 @@ return(
 
 }
 
-export default ConsultarApi
+export default ConsultarApiSa
