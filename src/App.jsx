@@ -9,8 +9,8 @@
 // import Tema from "./components/Tema/Tema.jsx";
 // import ConsultarApi from "./components/ConsultaApi/consultaApi";
 // import ConsultarApiSa from "./components/ConsultaApi/ConsultaApiSa";
-// import ConsultaProduto from "./components/Produtos/Consulta";
-import Produto from "./components/Produtos/Produto";
+import ConsultaProduto from "./components/Produtos/Consulta";
+// import Produto from "./components/Produtos/Produto";
 
 
 
@@ -24,8 +24,8 @@ function App() {
     {/* <ContadorAuto/> */}
     {/* <Tema/> */}
     {/* <ConsultarApiSa/> */}
-    {/* <ConsultaProduto/> */}
-    <Produto/>
+    <ConsultaProduto/>
+    {/* <Produto/> */}
     </>
   );
 };

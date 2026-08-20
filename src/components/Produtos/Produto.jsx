@@ -1,35 +1,34 @@
 import { useState, useEffect } from "react"
 
 
-function Produto(){
- useEffect(() => {
+const Produto = ({ produto }) => {
+
+    const [pesquisa, setPesquisa] = useState(null);
+    
+    useEffect(() => {
+
     async function ProdutoApi(){
-    const resposta = await fetch("https://ranekapi.origamid.dev/json/api/produto");
-    console.log(resposta)
 
-    const pesquisa = await resposta.json();
-    console.log(pesquisa)
-    console.log(pesquisa.nome)
-    console.log(pesquisa.preco)
+        if (produto !== null){
+        const resposta = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${produto}`);
 
- }
+        const pesquisa = await resposta.json();
+        setPesquisa(pesquisa)
+        } 
+    }
+    ProdutoApi();
+}, [produto]);
+
+if (pesquisa === null) return null;
   
- ProdutoApi();
-
-   
- }, []);
-    
  return(
-    <>
-    </>
- )
-
-    
-    
-    
-}
-    
-
+    <main>
+        <h1>Produtos</h1>
+        <p>Nome: {pesquisa.nome}</p>
+        <p>Preço: {pesquisa.preco}</p>
+    </main>
+ );
+};
 
 
 export default Produto
