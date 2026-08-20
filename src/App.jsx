@@ -8,7 +8,10 @@
 // import ContadorAuto from './components/ContadorAuto/ContadorAuto.jsx';
 // import Tema from "./components/Tema/Tema.jsx";
 // import ConsultarApi from "./components/ConsultaApi/consultaApi";
-import ConsultarApiSa from "./components/ConsultaApi/ConsultaApiSa";
+// import ConsultarApiSa from "./components/ConsultaApi/ConsultaApiSa";
+// import ConsultaProduto from "./components/Produtos/Consulta";
+import Produto from "./components/Produtos/Produto";
+
 
 
 function App() {
@@ -20,7 +23,9 @@ function App() {
     {/* <UseStateHook/> */}
     {/* <ContadorAuto/> */}
     {/* <Tema/> */}
-    <ConsultarApiSa/>
+    {/* <ConsultarApiSa/> */}
+    {/* <ConsultaProduto/> */}
+    <Produto/>
     </>
   );
 };
