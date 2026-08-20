@@ -2,44 +2,34 @@ import { useState, useEffect } from "react"
 
 
 function Produto(){
-const [nome, setNome] = useState([]);
-const [erro, setErro] = useState("");
-
-
-async function ProdutoApi(){
-setErro("");
-
-try{
-    const resposta = await fetch("https://ranekapi.origamid.dev/json/api/produto/");
+ useEffect(() => {
+    async function ProdutoApi(){
+    const resposta = await fetch("https://ranekapi.origamid.dev/json/api/produto");
     console.log(resposta)
 
-    const pesquisa = resposta.json;
-    setNome(pesquisa)
+    const pesquisa = await resposta.json();
+    console.log(pesquisa)
+    console.log(pesquisa.nome)
+    console.log(pesquisa.preco)
 
+ }
+  
+ ProdutoApi();
+
+   
+ }, []);
     
-} catch (error){
-        console.log(error.message)
-
-        if (error.message === "Failed to fetch" || !navigator.onLine){
-            setErro("Não foi possível conectar ao servidor. Verifique sua internet.");
-        } else {
-            setErro(error.message)
-        }
-
-}
-    
-
-
-return(
+ return(
     <>
-    <h1>{nome.nome}</h1>
-    <p>{preco.preco}</p>
     </>
-)
+ )
 
-}
+    
+    
     
 }
+    
+
 
 
 export default Produto
